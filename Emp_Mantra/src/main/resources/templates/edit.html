@@ -1,0 +1,158 @@
+<!DOCTYPE HTML>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Edit employee Details</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-xlarge.css" />
+		</noscript>
+    </head>
+    <style>
+         .fom{
+			/* background-color: #4CAF50; */
+            width: 800px;
+            height: 685px;
+            margin:auto;
+            /* margin-left: 14%; */
+        }
+
+        .inner{
+           
+			/* background-color: rgb(111, 76, 175); */
+             width: 800px;
+             height: 685px;
+			 margin:auto; 
+			 position: relative;
+             /* margin-top: 150px; */
+            
+        }
+
+        button {
+         background-color: rgb(122, 53, 53);
+        color: whitesmoke;
+        padding: 15px 10px;
+        margin: 8px 0;
+         border: none;
+      font-size: 200%;
+        cursor: pointer;
+        width: 100%;
+        /* height: 75px; */
+        border-radius: 5px;
+        /* margin-left: 15%; */
+        margin-right: 10%;
+        /* margin-top: 5%; */
+        }
+        /* a{
+            color: white;
+            font-size: 200%;
+        } */
+
+
+
+
+    </style>
+
+	
+
+	<body id="top">
+
+		<!-- Header -->
+			
+
+		<!-- Main -->
+			<section id="main" class="wrapper style1">
+				<header class="major">
+					<center><h2>Edit Your Details Here....</h2></center>
+				
+				</header>
+				
+				<!-- Forgot -->
+                <div class="fom">
+					<div class="inner">
+					
+					
+				 <div align="center">
+       
+        <br />
+        <form th:action="@{/editsave}" th:object="${mymodel}"
+            method="post">
+ 
+            <table border="0" cellpadding="10">
+                <tr>
+                    <td>ID:</td>
+                   <td><input type="text" th:field="*{id}" readonly="readonly" /></td>
+                </tr>
+                <tr>
+                    <td>First Name:</td>
+                    <td><input type="text" th:field="*{fname}" /></td>
+                </tr>
+                <tr>
+                    <td>Last Name:</td>
+                    <td><input type="text" th:field="*{lname}" /></td>
+                </tr>
+                  <tr>
+                    <td>User Name:</td>
+                    <td><input type="text" th:field="*{uname}" /></td>
+                </tr>
+                <tr>
+                    <td>E Mail:</td>
+                    <td><input type="text" th:field="*{email}" /></td>
+                </tr>
+                  <tr>
+                    <td>Password:</td>
+                    <td><input type="text" th:field="*{password}" /></td>
+                </tr>
+                 <tr>
+                    <td>Phone:</td>
+                    <td><input type="text" th:field="*{phone}" /></td>
+                </tr>
+               
+                 <tr>
+                    <td>Account Number:</td>
+                    <td><input type="text" th:field="*{acno}" /></td>
+                </tr>
+                 <tr>
+                    <td>Aadhar Number:</td>
+                    <td><input type="text" th:field="*{aadhaar}" /></td>
+                </tr>
+               
+                
+               
+                <tr>
+                
+                    <td colspan="2"><button type="submit">Save</button> </td>
+                </tr> 
+            </table>
+        </form>
+    </div>
+				</div>
+				</div>
+
+
+				
+
+
+
+
+
+
+
+
+			</section>
+
+		<!-- Footer -->
+			
+
+	</body>
+</html>

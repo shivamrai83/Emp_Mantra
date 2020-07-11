@@ -1,0 +1,216 @@
+<!DOCTYPE HTML>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Employee Details</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+		<script src="forgotval.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-xlarge.css" />
+		</noscript>
+	</head>
+
+	<style>
+       
+        .error {
+            color:sandybrown;
+            /* background-color: #acf; */
+            }   
+        input[type=text], input[type=password]{
+           
+            padding: 12px 20px;            
+            border: 1px solid #ccc;
+            width:100%;
+            border-radius: 5px;
+            margin-top: 3%;
+            margin-bottom: 2%;
+        }
+
+        .fom{
+			/* background-color: #4CAF50; */
+            width: 450px;
+            height: 445px;
+            margin:auto;
+            /* margin-left: 14%; */
+        }
+
+        .inner{
+           
+			/* background-color: rgb(111, 76, 175); */
+             width: 380px;
+             height: 380px;
+			 margin:auto; 
+			 position: relative;
+             /* margin-top: 150px; */
+            
+        }
+
+        button {
+         background-color: #4CAF50;
+        color: white;
+        padding: 15px 10px;
+        margin: 8px 0;
+         border: none;
+        cursor: pointer;
+        width: 65%;
+        border-radius: 5px;
+        margin-left: 15%;
+        margin-right: 10%;
+        margin-top: 5%;
+        }
+
+        b{  
+            font-size: 20px;
+            
+        }
+
+        /* label{
+            margin-bottom:50%;
+        } */
+
+        /* h1{ font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size:52.5px;
+            color: rgb(33, 19, 71);
+            } */
+        
+        #f{
+            color:sandybrown;
+            /* margin-left: 17%; */
+			text-align: right;
+           
+        }
+
+        .s{
+            font-size: 30px;
+        }
+
+        #s{
+            color:sandybrown;
+           
+        }
+
+      
+    </style>
+
+
+
+	<body id="top">
+
+		<!-- Header -->
+			<header id="header" class="skel-layers-fixed">
+				<h1><a href="#">EmpMantra</a></h1>
+				<nav id="nav">
+					<ul>
+						<li><a th:href="index">Home</a></li>
+						<li><a th:href="left-sidebar">Employee</a></li>
+						<li><a th:href="adminlogin">Administrator</a></li>
+						<li><a th:href="no-sidebar">About</a></li>
+						<li><a href="#" class="button special">Contact Us</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Main -->
+			<section id="main" class="wrapper style1">
+				<header class="major">
+					<h2>All working Employee Details</h2>
+					
+				</header>
+				
+				
+
+					
+					<div class="main" align="center">
+<h1>Employee Record</h1>
+<a th:href="@{/singup}">Enter New Record</a>
+<br>
+<table id="example"  class="display" style="width:100%" border="3" cellpadding="3"  >
+<thead>
+<tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+             <th>Username</th>
+            <th>E-mail</th>
+            <th>Password</th>
+              <th>Phone</th>
+              <th>Account No</th>
+               <th>Aadhaar No</th>
+                 <th>Modify Options</th>
+        </tr>
+</thead>
+        <tr th:each="mymodel : ${listmymodel}">
+     	<td th:text="${mymodel.id}">ID</td>  
+            <td th:text="${mymodel.fname}">First Name</td>
+            <td th:text="${mymodel.lname}">Last Name</td>
+              <td th:text="${mymodel.uname}">Username</td>
+            <td th:text="${mymodel.email}">E-Mail</td>
+              <td th:text="${mymodel.password}">Password</td>
+            <td th:text="${mymodel.phone}">Phone</td>
+             <td th:text="${mymodel.acno}">Account No</td>
+			  <td th:text="${mymodel.aadhaar}">Aadhaar No</td>
+			               
+               <td>
+                <a th:href="@{'/edit/' + ${mymodel.id}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/delete/' + ${mymodel.id}}">Delete</a>
+               </td>
+        </tr>
+
+    </table>
+</div>
+
+					
+					   
+				
+					
+					
+				
+
+
+
+
+
+
+
+
+
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container">
+					<div class="row double">
+						<h2>Find Us on Diffrent Social Media Platforms</h2>
+							<!-- <p>Blandit nunc tempor lobortis nunc non. Mi accumsan. Justo aliquet massa adipiscing cubilia eu accumsan id. Arcu accumsan faucibus vis ultricies adipiscing ornare ut. Mi accumsan justo aliquet.</p> -->
+							<ul class="icons">
+								<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+								<li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+								<li><a href="#" class="icon fa-pinterest"><span class="label">Pinterest</span></a></li>
+							</ul>
+						</div>
+					</div>
+					<ul class="copyright">
+						<li>&copy; Untitled. All rights reserved.</li>
+						<li>Design: <a href="http://www.facebook.com/shivamrai83">Shivam Rai</a></li>
+						<!-- <li>Images: <a href="http://unsplash.com"></a></li> -->
+					</ul>
+				</div>
+			</footer>
+
+	</body>
+</html>
